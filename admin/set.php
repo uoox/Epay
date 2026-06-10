@@ -14,7 +14,44 @@ $mod=isset($_GET['mod'])?$_GET['mod']:null;
 $mods=['site'=>'网站信息','pay'=>'支付相关','risk'=>'风控检测','settle'=>'结算规则','transfer'=>'转账付款','oauth'=>'快捷登录','notice'=>'消息提醒','certificate'=>'实名认证','template'=>'首页模板','gonggao'=>'公告与排版','mail'=>'邮箱与短信','upimg'=>'LOGO设置','iptype'=>'IP地址','cron'=>'计划任务','proxy'=>'中转代理','account'=>'修改密码'];
 ?>
 <ul class="nav nav-pills">
-	<?php foreach($mods as $key=>$name){echo '<li class="'.($key==$mod?'active':null).'"><a href="set.php?mod='.$key.'">'.$name.'</a></li>';} ?>
+	<?php 
+	$mods_grouped = [
+		'基础设置' => [
+			'site' => ['网站信息', 'fa-cog'],
+			'upimg' => ['LOGO设置', 'fa-image'],
+			'account' => ['修改密码', 'fa-lock']
+		],
+		'收付配置' => [
+			'pay' => ['支付相关', 'fa-credit-card'],
+			'settle' => ['结算规则', 'fa-calendar-check-o'],
+			'transfer' => ['转账付款', 'fa-bank']
+		],
+		'安全风控' => [
+			'risk' => ['风控检测', 'fa-shield'],
+			'certificate' => ['实名认证', 'fa-id-card-o'],
+			'iptype' => ['IP地址', 'fa-globe']
+		],
+		'整合扩展' => [
+			'oauth' => ['快捷登录', 'fa-user-circle-o'],
+			'mail' => ['邮箱与短信', 'fa-envelope-o'],
+			'notice' => ['消息提醒', 'fa-bell-o'],
+			'proxy' => ['中转代理', 'fa-exchange']
+		],
+		'界面运行' => [
+			'template' => ['首页模板', 'fa-desktop'],
+			'gonggao' => ['公告与排版', 'fa-bullhorn'],
+			'cron' => ['计划任务', 'fa-tasks']
+		]
+	];
+	foreach($mods_grouped as $group_name => $group_items) {
+		echo '<li class="nav-header" style="padding: 8px 14px; font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.5px; margin-top: 8px;">' . $group_name . '</li>';
+		foreach($group_items as $key => $val) {
+			$name = $val[0];
+			$icon = $val[1];
+			echo '<li class="'.($key==$mod?'active':null).'"><a href="set.php?mod='.$key.'"><i class="fa '.$icon.' fa-fw" style="margin-right:8px;"></i>'.$name.'</a></li>';
+		}
+	}
+	?>
 </ul>
 <?php
 $conf=$CACHE->pre_fetch();

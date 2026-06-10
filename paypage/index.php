@@ -162,6 +162,7 @@ $_SESSION['paypage_token'] = $csrf_token;
     <meta http-equiv="expires" content="0">
     <link rel="stylesheet" href="css/default.css">
     <link rel="stylesheet" href="css/style.css?version=1001">
+    <link rel="stylesheet" href="css/modern-pay.css?version=1001">
 </head>
 <body>
 <div class="layout-flex wrap">

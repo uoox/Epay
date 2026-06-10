@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --pay-bg-gradient: radial-gradient(circle at top left, #0f172a 0%, #020617 100%);
+  --pay-card-bg: rgba(15, 23, 42, 0.55);
+  --pay-card-border: 1px solid rgba(255, 255, 255, 0.08);
+  --pay-text-primary: #f8fafc;
+  --pay-text-secondary: #cbd5e1;
+  --pay-text-muted: #64748b;
+  --pay-primary: #3b82f6;
+  --pay-primary-active: #2563eb;
+  --pay-key-bg: rgba(255, 255, 255, 0.04);
+  --pay-key-active: rgba(255, 255, 255, 0.12);
+  --pay-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 8px 15px -10px rgba(0, 0, 0, 0.4);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --pay-bg-gradient: radial-gradient(circle at top left, #f8fafc 0%, #f1f5f9 100%);
+    --pay-card-bg: rgba(255, 255, 255, 0.85);
+    --pay-card-border: 1px solid rgba(226, 232, 240, 0.8);
+    --pay-text-primary: #0f172a;
+    --pay-text-secondary: #475569;
+    --pay-text-muted: #94a3b8;
+    --pay-primary: #2563eb;
+    --pay-primary-active: #1d4ed8;
+    --pay-key-bg: rgba(0, 0, 0, 0.02);
+    --pay-key-active: rgba(0, 0, 0, 0.06);
+    --pay-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 8px 15px -6px rgba(0, 0, 0, 0.03);
+  }
+}
+
+/* Base Styles */
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif !important;
+  background: var(--pay-bg-gradient) !important;
+  color: var(--pay-text-secondary) !important;
+  height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.layout-flex.wrap {
+  width: 100% !important;
+  max-width: 440px !important;
+  height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding: 16px !important;
+  box-sizing: border-box !important;
+}
+
+/* Merchant Header */
+.mar20 {
+  margin: 16px 8px !important;
+}
+.mar20 table {
+  width: 100% !important;
+}
+.selTitle {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: var(--pay-text-primary) !important;
+}
+.sico_pay {
+  background: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 42px !important;
+  height: 42px !important;
+  background-color: var(--pay-primary) !important;
+  border-radius: 12px !important;
+  color: white !important;
+  margin-right: 12px !important;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3) !important;
+}
+.sico_pay::before {
+  content: "¥";
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Glass Card Content Container */
+.content {
+  background: var(--pay-card-bg) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: var(--pay-card-border) !important;
+  border-radius: 24px !important;
+  box-shadow: var(--pay-shadow) !important;
+  padding: 24px 16px !important;
+  margin-bottom: 24px !important;
+}
+
+/* Amount Input Area */
+.set_amount {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 16px !important;
+  padding: 16px !important;
+  margin: 16px 0 !important;
+}
+
+.payMoney {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--pay-text-muted) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px !important;
+}
+
+.amount_bd {
+  display: flex !important;
+  align-items: center !important;
+  height: 60px !important;
+}
+
+.i_money {
+  font-size: 36px !important;
+  font-weight: 500 !important;
+  color: var(--pay-text-primary) !important;
+  margin-right: 8px !important;
+}
+
+.amount_bd .input_simu {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 42px !important;
+  font-weight: 700 !important;
+  color: var(--pay-text-primary) !important;
+  letter-spacing: -1px;
+}
+
+.amount_bd .line_simu {
+  height: 36px !important;
+  background-color: var(--pay-primary) !important;
+  width: 2px !important;
+  margin-left: 2px !important;
+}
+
+/* Remark styling */
+.set_remark {
+  padding: 0 4px !important;
+}
+.have_been_set {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  font-size: 14px !important;
+  color: var(--pay-text-secondary) !important;
+}
+.remark_operate a {
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--pay-primary) !important;
+}
+
+/* Custom Virtual Keyboard styling */
+.keyboard {
+  background: transparent !important;
+  margin-top: auto !important;
+}
+
+.key_table {
+  border-collapse: separate !important;
+  border-spacing: 8px !important;
+}
+
+.key_table td {
+  height: 54px !important;
+  background: var(--pay-key-bg) !important;
+  border: var(--pay-card-border) !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  font-size: 24px !important;
+  color: var(--pay-text-primary) !important;
+  transition: all 0.15s ease !important;
+  display: table-cell !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02) !important;
+}
+
+.key_table td:active {
+  background: var(--pay-key-active) !important;
+  transform: scale(0.96);
+}
+
+.key_table td::after {
+  display: none !important; /* Hide old 1px border overlays */
+}
+
+/* Custom Delete Icon in keyboard */
+.keyboard .key.clear {
+  background: var(--pay-key-bg) !important;
+  display: table-cell !important;
+}
+.keyboard .key.clear::before {
+  content: "⌫";
+  font-size: 24px;
+  color: var(--pay-text-primary);
+}
+
+/* Pay Button */
+.keyboard .pay_btn {
+  background: var(--pay-primary) !important;
+  color: white !important;
+  font-weight: 700 !important;
+  font-size: 18px !important;
+  border-radius: 12px !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3) !important;
+}
+.keyboard .pay_btn:active {
+  background: var(--pay-primary-active) !important;
+  transform: scale(0.96);
+}
+
+.copyRight {
+  font-size: 12px !important;
+  color: var(--pay-text-muted) !important;
+  text-align: center !important;
+  margin: 12px 0 4px 0 !important;
+}
+
+/* Modal Styling */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  justify-content: center;
+  align-items: flex-end;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background: var(--pay-card-bg);
+  border: var(--pay-card-border);
+  border-radius: 24px 24px 0 0;
+  width: 100%;
+  max-width: 440px;
+  padding: 24px;
+  box-sizing: border-box;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+}
+.modal.show .modal-content {
+  transform: translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.modal-header .title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--pay-text-primary);
+  margin: 0;
+}
+.modal-header .close {
+  font-size: 24px;
+  color: var(--pay-text-muted);
+  cursor: pointer;
+}
+
+.modal-body textarea {
+  width: 100% !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--pay-card-border) !important;
+  border-radius: 12px !important;
+  color: var(--pay-text-primary) !important;
+  padding: 12px !important;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 15px;
+  resize: none;
+  margin-bottom: 16px;
+}
+
+.modal-body button {
+  width: 100%;
+  height: 48px;
+  background: var(--pay-primary);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+  transition: all 0.2s ease;
+}
+.modal-body button:active {
+  background: var(--pay-primary-active);
+}
+.remark-tip {
+  font-size: 12px;
+  color: #ef4444;
+  margin-top: 8px;
+  display: none;
+}

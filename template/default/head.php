@@ -19,6 +19,7 @@ if(!defined('IN_CRONLITE'))exit();
 <script src="<?php echo $cdnpublic?>jquery/1.12.4/jquery.min.js"></script>
 <script src="<?php echo $cdnpublic?>twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet"type="text/css"href="<?php echo STATIC_ROOT?>css/index.css"/>
+<link rel="stylesheet"type="text/css"href="<?php echo STATIC_ROOT?>css/modern-landing.css?v=1.01"/>
 </head>
 <body>
 <!--[if (gt IE 6)&amp;(lt IE 9)]>
