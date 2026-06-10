@@ -32,27 +32,29 @@ function checkPluginSupportType($typeid, $plugin){
 switch($act){
 case 'channelList':
 	$sql=" 1=1";
+	$params = [];
 	if(isset($_POST['id']) && !empty($_POST['id'])) {
-		$id = intval($_POST['id']);
-		$sql.=" AND A.`id`='$id'";
+		$sql.=" AND A.`id`=:id";
+		$params[':id'] = intval($_POST['id']);
 	}
 	if(isset($_POST['type']) && !empty($_POST['type'])) {
-		$type = intval($_POST['type']);
-		$sql.=" AND A.`type`='$type'";
+		$sql.=" AND A.`type`=:type";
+		$params[':type'] = intval($_POST['type']);
 	}
 	if(isset($_POST['plugin']) && !empty($_POST['plugin'])) {
-		$plugin = trim($_POST['plugin']);
-		$sql.=" AND A.`plugin`='$plugin'";
+		$sql.=" AND A.`plugin`=:plugin";
+		$params[':plugin'] = trim($_POST['plugin']);
 	}
 	if(isset($_POST['dstatus']) && $_POST['dstatus']>-1) {
-		$dstatus = intval($_POST['dstatus']);
-		$sql.=" AND A.`status`={$dstatus}";
+		$sql.=" AND A.`status`=:dstatus";
+		$params[':dstatus'] = intval($_POST['dstatus']);
 	}
 	if(isset($_POST['kw']) && !empty($_POST['kw'])) {
-		$kw = trim(daddslashes($_POST['kw']));
-		$sql.=" AND (A.`id`='{$kw}' OR A.`name` like '%{$kw}%')";
+		$sql.=" AND (A.`id`=:kw OR A.`name` like :kwlike)";
+		$params[':kw'] = trim($_POST['kw']);
+		$params[':kwlike'] = '%'.trim($_POST['kw']).'%';
 	}
-	$list = $DB->getAll("SELECT A.*,B.name typename,B.showname typeshowname FROM pre_channel A LEFT JOIN pre_type B ON A.type=B.id WHERE{$sql} ORDER BY id DESC");
+	$list = $DB->getAll("SELECT A.*,B.name typename,B.showname typeshowname FROM pre_channel A LEFT JOIN pre_type B ON A.type=B.id WHERE{$sql} ORDER BY id DESC", $params);
 	exit(json_encode($list));
 break;
 

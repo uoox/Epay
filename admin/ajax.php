@@ -120,7 +120,9 @@ case 'set':
 	if(isset($_POST['login_apiurl'])){
 		if(!empty($_POST['login_apiurl']) && (substr($_POST['login_apiurl'],0,4)!='http' || substr($_POST['login_apiurl'],-1)!='/'))exit('{"code":-1,"msg":"聚合登录API接口地址格式错误"}');
 	}
+	$black_list = ['admin_user', 'admin_pwd', 'admin_paypwd'];
 	foreach($_POST as $k=>$v){
+		if(in_array($k, $black_list)) continue;
 		saveSetting($k, $v);
 	}
 	$ad=$CACHE->clear();
@@ -180,6 +182,10 @@ case 'testproxy':
 	$conf['proxy_user'] = trim($_POST['proxy_user']);
 	$conf['proxy_pwd'] = trim($_POST['proxy_pwd']);
 	$conf['proxy_type'] = $_POST['proxy_type'];
+	$ip = gethostbyname($conf['proxy_server']);
+	if(!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+		exit('{"code":-1,"msg":"代理服务器地址不允许为内网IP"}');
+	}
 	try{
 		check_proxy('https://dl.amh.sh/ip.htm');
 	}catch(Exception $e){
