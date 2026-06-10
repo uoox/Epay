@@ -32,6 +32,7 @@ $_SESSION['csrf_token'] = $csrf_token;
 <link rel="stylesheet" href="<?php echo $cdnpublic?>font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
 <link rel="stylesheet" href="./assets/css/font.css" type="text/css" />
 <link rel="stylesheet" href="./assets/css/app.css" type="text/css" />
+<link rel="stylesheet" href="../assets/css/modern-ui.css?v=1.01" type="text/css" />
 <style>input:-webkit-autofill{-webkit-box-shadow:0 0 0px 1000px white inset;-webkit-text-fill-color:#333;}img.logo{width:14px;height:14px;margin:0 5px 0 3px;}</style>
 </head>
 <body>

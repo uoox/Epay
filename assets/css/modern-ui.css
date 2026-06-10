@@ -641,3 +641,46 @@ a:hover, a:focus {
 .pull-right.search, .columns-right {
   margin-bottom: 12px !important;
 }
+
+/* ==========================================
+   LOGIN & SIGNUP PAGES OVERRIDES
+   ========================================== */
+.container.w-xxl {
+  background: var(--card-bg) !important;
+  backdrop-filter: blur(var(--glass-blur)) !important;
+  -webkit-backdrop-filter: blur(var(--glass-blur)) !important;
+  border: var(--card-border) !important;
+  border-radius: var(--border-radius-lg) !important;
+  box-shadow: var(--box-shadow-hover) !important;
+  padding: 30px !important;
+  margin-top: 10vh !important;
+}
+
+.swaplogin {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.swaplogin .list-group-item {
+  background: transparent !important;
+  border: none !important;
+  padding: 10px 0 !important;
+}
+
+.swaplogin .list-group-item .form-control {
+  border-radius: var(--border-radius-sm) !important;
+  border: 1px solid var(--card-border) !important;
+  height: 44px !important;
+}
+
+.navbar-brand.block.m-t {
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  color: var(--primary-color) !important;
+  text-align: center;
+  float: none !important;
+  margin: 0 auto 16px auto !important;
+}
+
